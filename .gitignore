@@ -273,5 +273,5 @@ files-media/
 
 .ipython/
 .env
-!.envs/*
+.envs/*
 !.envs/.local/
