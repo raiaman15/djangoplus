@@ -1,0 +1,3 @@
+POSTGRES_DB=shiksha
+POSTGRES_USER=infroid
+POSTGRES_PASSWORD=infroid.shiksha

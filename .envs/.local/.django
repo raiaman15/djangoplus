@@ -1,0 +1,15 @@
+DEBUG=1
+TESTING=1
+SECRET_KEY=_3j3@&fvzdf*4z00qp&iv8g@x*)rfygz4t-35_ri0llmk$qh)a
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+DATABASE=postgres
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=shiksha
+SQL_USER=infroid
+SQL_PASSWORD=infroid.shiksha
+SQL_HOST=postgres
+SQL_PORT=5432
+
+PRODUCT_NAME=Shiksha
+COMPANY_NAME=Infroid
+INSTITUTION_NAME=Sunbeam School Bhagwanpur
