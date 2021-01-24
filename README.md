@@ -27,4 +27,4 @@
 - https://docs.docker.com/compose/django/
 - https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
 
-*NOTE: This is a starter template for django (version 2.2)*
+*NOTE: This is a starter template for django (version 3.1.5)*
