@@ -28,4 +28,5 @@ services:
     env_file:
       - ./.envs/.local/.postgres
 volumes:
+  .:
   postgres_data:
