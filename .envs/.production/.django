@@ -1,6 +1,6 @@
 DEBUG=0
 SECRET_KEY=_3j3@&fvzdf*4z00qp&iv8g@x*)rfygz4t-35_ri0llmk$qh)a
-DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+DJANGO_ALLOWED_HOSTS=
 DATABASE=postgres
 SQL_ENGINE=django.db.backends.postgresql
 SQL_DATABASE=shiksha
