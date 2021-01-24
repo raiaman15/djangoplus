@@ -265,12 +265,7 @@ Session.vim
 tags
 
 ### Project template
-
-files-media/
-
 .pytest_cache/
-
-
 .ipython/
 .env
 .envs/*

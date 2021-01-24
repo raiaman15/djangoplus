@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -141,14 +141,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'files-media')
 
 # Crispy Form Template
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-
-# Add the django debug toolbar for debug mode.
-if DEBUG:
-    # Add installed apps on top
-    INSTALLED_APPS = [] + INSTALLED_APPS
-
-    # Add middleware on bottom
-    MIDDLEWARE = MIDDLEWARE + []
-
-    # Plugin specific configurations
