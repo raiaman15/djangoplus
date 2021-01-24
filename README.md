@@ -14,6 +14,13 @@
 **Creating Prod Setup**
 `docker-compose -f dc-production.yml up -d --build`
 
+### PRODUCTION SSL SETUP
+**Deleting Production Setup**
+`docker-compose -f dc-ssl-production.yml down -v`
+
+**Creating Prod Setup**
+`docker-compose -f dc-ssl-production.yml up -d --build`
+
 ### USEFUL DOCKER COMMANDS
 **Execute Command in Docker Container**
 `docker-compose exec <container_name> <command>`

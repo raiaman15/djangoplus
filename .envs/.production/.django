@@ -1,13 +1,14 @@
-DEBUG=0
+DEBUG=False
 SECRET_KEY=_3j3@&fvzdf*4z00qp&iv8g@x*)rfygz4t-35_ri0llmk$qh)a
 DJANGO_ALLOWED_HOSTS=0.0.0.0 test.infroid.com
-DATABASE=postgres
 SQL_ENGINE=django.db.backends.postgresql
-SQL_DATABASE=shiksha
-SQL_USER=infroid
-SQL_PASSWORD=infroid.shiksha
+SQL_DATABASE=product_name_db
+SQL_USER=product_name_db_user
+SQL_PASSWORD=product#name#db#user#password
 SQL_HOST=postgres_production
 SQL_PORT=5432
 
 PRODUCT_NAME=YourProjectName
 COMPANY_NAME=YourCompanyName
+
+ADMINS=[('Infroid', 'no-reply@test.infroid.com'), ('Aman', 'aman@infroid.com')]

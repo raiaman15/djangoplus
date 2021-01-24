@@ -14,14 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.urls import path
+from django.contrib import admin
+from django.urls import path, include
 from upload.views import image_upload
 
 urlpatterns = [
+    # Django admin
+    path('infroid-backend/', admin.site.urls),
+
+    # User management
+    path('accounts/', include('allauth.urls')),
+
+    # Local apps
     path("upload/", image_upload, name="upload"),
 ]
 
-if bool(settings.DEBUG):
+if bool(settings.DEBUG) == True:
+    """Development Specific Routes"""
     from django.contrib import admin
     from config.settings import local
     from django.conf.urls.static import static
@@ -29,4 +38,7 @@ if bool(settings.DEBUG):
                           document_root=local.STATIC_ROOT)
     urlpatterns += static(local.MEDIA_URL,
                           document_root=local.MEDIA_ROOT)
-    urlpatterns.append(path('admin/', admin.site.urls))
+else:
+    """Production Specific Routes"""
+    urlpatterns += path('admin/', include('admin_honeypot.urls',
+                                          namespace='admin_honeypot')),
