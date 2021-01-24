@@ -9,7 +9,6 @@ services:
       dockerfile: ./compose/ssl-production/nginx/Dockerfile
     restart: unless-stopped
     volumes:
-      # - ./data/nginx:/etc/nginx/conf.d
       - static_volume:/app/files-static
       - media_volume:/app/files-media
     ports:
