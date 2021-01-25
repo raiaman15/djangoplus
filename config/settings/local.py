@@ -30,7 +30,7 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = env.str("DJANGO_ALLOWED_HOSTS").split(" ")
 
-ADMINS = env.list("ADMINS", default=[])
+# ADMINS = env.list("ADMINS", default=[])
 
 # Application definition
 
@@ -48,10 +48,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'admin_honeypot',
+    'django_extensions',
 
     # Local
     'accounts',
     'upload',
+    'pages'
 ]
 
 MIDDLEWARE = [

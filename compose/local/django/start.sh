@@ -19,5 +19,9 @@ echo "RUNNING ALL TEST CASES"
 python manage.py test
 echo "CREATING TEST SUPERUSER"
 echo "from django.contrib.auth import get_user_model; user = get_user_model().objects.create_user('admin@infroid.com', 'DevTeam@123'); user.is_superuser=True; user.is_staff=True; user.save()" | python manage.py shell
+
 echo "STARTING DJANGO BUILT-IN SERVER"
-python manage.py runserver 0.0.0.0:8000
+# SSL Enabled Mode
+# python manage.py runserver_plus 0.0.0.0:8000 --cert-file /tmp/cert.crt
+# SSL Disabled Mode
+python manage.py runserver_plus 0.0.0.0:8000

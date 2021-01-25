@@ -1,23 +1,14 @@
 {% extends "layouts/base-fullscreen.html" %}
 
+{% load static %}
+
 {% block title %} Error 404 - Page Not Found {% endblock %}
 
 <!-- Element injected in the BODY element -->
 {% block body_class %} login-page {% endblock body_class %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}
-
-<!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="{% static 'project/plugins/fontawesome-free/css/all.min.css' %}">
-<!-- icheck bootstrap -->
-<link rel="stylesheet" href="{% static 'project/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
-<!-- Theme style -->
-<link rel="stylesheet" href="{% static 'project/css/adminlte.min.css' %}">
-
-{% endblock stylesheets %}
+{% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
 
@@ -39,17 +30,15 @@
             <p class="login-box-msg">
                 This feature is unavailable in your region.
                 You can provide your input/idea to before it arrives.<br />
-                Please contact <a href="{% url 'login' %}" class="text-center">{{PRODUCT_NAME}} Support Team</a> if you
-                need
-                further help.
+                Please contact {{PRODUCT_NAME}} Support Team if you need further help.
             </p>
 
             <br />
             <div class="text-center">
                 &copy;
-                <a target="_blank" href="https://shiksha.infroid.com">{{PRODUCT_NAME}}</a>
+                <a target="_blank" href="{% url 'product_page' %}">{{PRODUCT_NAME}}</a>
                 - developed by <a target="_blank" rel="noopener noreferrer"
-                    href="https://infroid.com">{{COMPANY_NAME}}</a>.
+                    href="{% url 'company_page' %}">{{COMPANY_NAME}}</a>.
             </div>
 
         </div>
@@ -61,11 +50,4 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}
-
-<!-- jQuery -->
-<script src="{% static 'project/plugins/jquery/jquery.min.js' %}"></script>
-<!-- Bootstrap 4 -->
-<script src="{% static 'project/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-{% endblock javascripts %}
+{% block javascripts %}{% endblock javascripts %}

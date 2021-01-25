@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,21 @@
     {{PRODUCT_NAME}} - {% block title %}{% endblock %} | by {{COMPANY_NAME}}
   </title>
 
+  <!-- Generic CSS goes HERE  -->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'project/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet"
+    href="{% static 'project/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{% static 'project/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'project/css/adminlte.min.css' %}">
+
+  <!-- Specific Page CSS goes HERE  -->
   {% block stylesheets %}{% endblock stylesheets %}
 
 </head>
@@ -34,10 +50,18 @@
   </div>
   <!-- ./wrapper -->
 
+  <!-- Generic JS goes HERE  -->
+  <!-- jQuery -->
+  <script src="{% static 'project/plugins/jquery/jquery.min.js' %}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{% static 'project/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{% static 'project/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- AdminLTE App -->
+  <script src="{% static 'project/js/adminlte.min.js' %}"></script>
+
   <!-- Specific Page JS goes HERE  -->
   {% block javascripts %}{% endblock javascripts %}
-
-  <!-- Generic JS goes HERE  -->
 
 </body>
 

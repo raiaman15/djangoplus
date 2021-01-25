@@ -11,4 +11,4 @@ SQL_PORT=5432
 PRODUCT_NAME=YourProjectName
 COMPANY_NAME=YourCompanyName
 
-ADMINS=[('YourProjectName Webmaster', 'webmaster@infroid.com'),]
+ADMINS=[('Webmaster','webmaster@test.infroid.com'),('Administrator','administrator@test.infroid.com')]

@@ -1,3 +1,6 @@
+# Set False ONLY if trying to mimic production setup locally
+DJANGO_SECURE_SSL_REDIRECT=False
+
 DEBUG=False
 SECRET_KEY=_3j3@&fvzdf*4z00qp&iv8g@x*)rfygz4t-35_ri0llmk$qh)a
 DJANGO_ALLOWED_HOSTS=0.0.0.0 test.infroid.com
@@ -11,4 +14,4 @@ SQL_PORT=5432
 PRODUCT_NAME=YourProjectName
 COMPANY_NAME=YourCompanyName
 
-ADMINS=[('YourProjectName Webmaster', 'webmaster@infroid.com'),]
+ADMINS=[('Webmaster','webmaster@test.infroid.com'),('Administrator','administrator@test.infroid.com')]
