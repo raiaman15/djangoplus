@@ -11,11 +11,11 @@
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome -->
-<link rel="stylesheet" href="/static/shiksha/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="{% static 'project/plugins/fontawesome-free/css/all.min.css' %}">
 <!-- icheck bootstrap -->
-<link rel="stylesheet" href="/static/shiksha/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'project/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
 <!-- Theme style -->
-<link rel="stylesheet" href="/static/shiksha/css/adminlte.min.css">
+<link rel="stylesheet" href="{% static 'project/css/adminlte.min.css' %}">
 
 {% endblock stylesheets %}
 
@@ -24,8 +24,7 @@
 <div class="login-box">
 
     <div class="login-logo">
-        <a target="_blank" href=""><b>{{PRODUCT_NAME}}</b> <br /><span
-                style="font-size: x-small;"> by
+        <a target="_blank" href=""><b>{{PRODUCT_NAME}}</b> <br /><span style="font-size: x-small;"> by
                 {{COMPANY_NAME}}</span></a>
     </div>
 
@@ -65,8 +64,8 @@
 {% block javascripts %}
 
 <!-- jQuery -->
-<script src="/static/shiksha/plugins/jquery/jquery.min.js"></script>
+<script src="{% static 'project/plugins/jquery/jquery.min.js' %}"></script>
 <!-- Bootstrap 4 -->
-<script src="/static/shiksha/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'project/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 {% endblock javascripts %}
