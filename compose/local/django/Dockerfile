@@ -7,7 +7,7 @@ RUN pip install --upgrade pip
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
-RUN pip install --no-cache-dir -r /requirements/local/requirements.txt
+RUN pip install -r /requirements/local/requirements.txt
 
 COPY ./compose/local/django/entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r$//g' /entrypoint.sh

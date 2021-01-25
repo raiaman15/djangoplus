@@ -51,8 +51,8 @@ coverage.xml
 *.pot
 
 # Django stuff:
-!files-static/
-!files-media/
+files-static/
+files-media/
 
 # Sphinx documentation
 docs/_build/

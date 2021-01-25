@@ -1,7 +1,14 @@
 #!/bin/sh
 
+# Personal Preference to start fresh - You may comment
+# Comment before your first production build (to retain migration history)
 echo "FLUSHING DATABASE"
 python manage.py flush --no-input
+echo "DELETING EXISTING MIGRATION FILES"
+find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+find . -path "*/migrations/*.pyc"  -delete
+# /Personal Preference to start fresh - You may comment
+
 echo "MAKING MIGRATION FILES"
 python manage.py makemigrations --noinput
 echo "MIGRATING DATABASE"
