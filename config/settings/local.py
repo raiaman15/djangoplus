@@ -185,13 +185,3 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 
 DEFAULT_FROM_EMAIL = 'no-reply@test.infroid.com'
-
-# Add the django debug toolbar for debug mode.
-if DEBUG:
-    # Add installed apps on top
-    INSTALLED_APPS = [] + INSTALLED_APPS
-
-    # Add middleware on bottom
-    MIDDLEWARE = MIDDLEWARE + []
-
-    # Plugin specific configurations

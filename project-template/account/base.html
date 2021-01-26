@@ -1,40 +1,98 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block head_title %}{% endblock %}</title>
-    {% block extra_head %}
-    {% endblock %}
-  </head>
-  <body>
-    {% block body %}
 
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% static 'project/favicon.ico' %}" type="image/x-icon">
 
-    <div>
-      <strong>Menu:</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-      </ul>
+  <title>{% block head_title %}{% endblock %}</title>
+
+  <!-- Generic CSS goes HERE  -->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'project/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet"
+    href="{% static 'project/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{% static 'project/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'project/css/adminlte.min.css' %}">
+
+  <!-- Specific Page Extra Head goes HERE  -->
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body class="hold-transition {% block body_class %} login-page {% endblock body_class %}">
+  {% block body %}
+
+  {% if messages %}
+  <div>
+    <strong>Messages:</strong>
+    <ul>
+      {% for message in messages %}
+      <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div>
+    <strong>Menu:</strong>
+    <ul>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+      <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+      {% else %}
+      <li><a href="{% url 'account_login' %}">Sign In</a></li>
+      <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="login-box">
+    <div class="login-logo">
+      <a target="_blank" href=""><b>{{PRODUCT_NAME}}</b> <br /><span style="font-size: x-small;"> by
+          {{COMPANY_NAME}}</span></a>
     </div>
-    {% block content %}
-    {% endblock %}
-    {% endblock %}
-    {% block extra_body %}
-    {% endblock %}
-  </body>
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <h5 class="login-box-msg">
+          Error 404 - Page Not Found
+        </h5>
+        <p class="login-box-msg">
+          {% block content %}{% endblock %}
+        </p>
+        <br />
+        <div class="text-center">
+          &copy;
+          <a target="_blank" href="{% url 'product_page' %}">{{PRODUCT_NAME}}</a>
+          - developed by <a target="_blank" rel="noopener noreferrer"
+            href="{% url 'company_page' %}">{{COMPANY_NAME}}</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+
+  <!-- Generic JS goes HERE  -->
+  <!-- jQuery -->
+  <script src="{% static 'project/plugins/jquery/jquery.min.js' %}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{% static 'project/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{% static 'project/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- AdminLTE App -->
+  <script src="{% static 'project/js/adminlte.min.js' %}"></script>
+
+  <!-- Specific Page Extra Body goes HERE  -->
+  {% block extra_body %}{% endblock %}
+</body>
+
 </html>
