@@ -43,7 +43,7 @@ class ProductPageTests(SimpleTestCase):
         self.assertTemplateUsed(self.response, 'pages/product.html')
 
     def test_productpage_contains_correct_html(self):
-        self.assertContains(self.response, 'Product Details Page')
+        self.assertContains(self.response, 'All Rights Reserved')
 
     def test_productpage_does_not_contain_incorrect_html(self):
         self.assertNotContains(

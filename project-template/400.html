@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Error 500 - Server Error {% endblock %}
+{% block title %} Error 400 - Bad Request {% endblock %}
 
 <!-- Element injected in the BODY element -->
 {% block body_class %} login-page {% endblock body_class %}
@@ -26,12 +26,12 @@
         <div class="card-body login-card-body">
 
             <h5 class="login-box-msg">
-                Error 500 - Server Error
+                Error 400 - Bad Request
             </h5>
             <p class="login-box-msg">
                 Oops! It seems like there is some issue.<br />
-                Check if you are ttrying to perform a valid operation.<br />
-                Contact {{PRODUCT_NAME}} Support Team if you need further help.
+                Try to clear your cache and reload the page.<br />
+                Contact {{PRODUCT_NAME}} Support Team for further help.
             </p>
 
             <br />

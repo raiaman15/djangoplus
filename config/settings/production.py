@@ -14,17 +14,17 @@ DEBUG = False
 
 ALLOWED_HOSTS = env.str("DJANGO_ALLOWED_HOSTS").split(" ")
 
-ADMINS = [
-    (
-        env.str("WEBMASTER_NAME", default="Webmaster"),
-        env.str("WEBMASTER_EMAIL", default="webmaster@test.infroid.com")
-    ),
-    (
-        env.str("ADMINISTRATOR_NAME", default="Administrator"),
-        env.str("ADMINISTRATOR_EMAIL", default="administrator@test.infroid.com")
-    )
-]
-MANAGERS = ADMINS
+# ADMINS = [
+#     (
+#         env.str("WEBMASTER_NAME", default="Webmaster"),
+#         env.str("WEBMASTER_EMAIL", default="webmaster@test.infroid.com")
+#     ),
+#     (
+#         env.str("ADMINISTRATOR_NAME", default="Administrator"),
+#         env.str("ADMINISTRATOR_EMAIL", default="administrator@test.infroid.com")
+#     )
+# ]
+# MANAGERS = ADMINS
 
 # Add INSTALLED_APPS on top
 INSTALLED_APPS = [] + INSTALLED_APPS
@@ -51,15 +51,18 @@ CACHE_MIDDLEWARE_SECONDS = 3600
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
 # Security config
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# TODO-NORMAL: Update to 7 days or 30 days once working properly
-SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=60)
-SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
-SECURE_CONTENT_TYPE_NOSNIFF = True
+if env.bool("MIMIC_PRODUCTION_LOCALLY"):
+    pass
+else:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    # TODO-NORMAL: Update to 7 days or 30 days once working properly
+    SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=60)
+    SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Admin Honeypot config
 ADMIN_HONEYPOT_EMAIL_ADMINS = True

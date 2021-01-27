@@ -1,5 +1,5 @@
-# Set False ONLY if trying to mimic production setup locally
-DJANGO_SECURE_SSL_REDIRECT=False
+# WARNING: Set True ONLY if trying to mimic production setup locally
+MIMIC_PRODUCTION_LOCALLY=True
 
 SECRET_KEY=_3j3@&fvzdf*4z00qp&iv8g@x*)rfygz4t-35_ri0llmk$qh)a
 DJANGO_ALLOWED_HOSTS=0.0.0.0 test.infroid.com
