@@ -1,4 +1,5 @@
 from config.settings.base import *
+from config.settings.base import env
 
 # Production specific settings
 
@@ -37,24 +38,38 @@ MIDDLEWARE += ['django.middleware.cache.FetchFromCacheMiddleware', ]
 
 ROOT_URLCONF = 'config.urls.production'
 
+WSGI_APPLICATION = 'config.wsgi.application'
+
 # django-allauth config
 # FIX-URGENT: Change to production specific email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Cache config
 CACHE_MIDDLEWARE_ALIAS = 'default'
-CACHE_MIDDLEWARE_SECONDS = 604800
+# TODO-NORMAL: Update to 7 days once working properly
+CACHE_MIDDLEWARE_SECONDS = 3600
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
 # Security config
-SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
-SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
-    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
-SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
-SESSION_COOKIE_SECURE = env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
-CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# TODO-NORMAL: Update to 7 days or 30 days once working properly
+SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=60)
+SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Admin Honeypot config
 ADMIN_HONEYPOT_EMAIL_ADMINS = True
+
+# Anymail
+# TODO-NORMAL: Remove console backend and switch to Twilio Sendgrid
+# EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+# ANYMAIL = {
+#     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+#     "SENDGRID_GENERATE_MESSAGE_ID": env("SENDGRID_GENERATE_MESSAGE_ID"),
+#     "SENDGRID_MERGE_FIELD_FORMAT": env("SENDGRID_MERGE_FIELD_FORMAT"),
+#     "SENDGRID_API_URL": env("SENDGRID_API_URL", default="https://api.sendgrid.com/v3/"),
+# }
