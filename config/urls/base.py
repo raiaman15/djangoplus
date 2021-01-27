@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from upload.views import image_upload
@@ -31,17 +30,4 @@ urlpatterns = [
     path('', include('pages.urls')),
     path("upload/", image_upload, name="upload"),
 ]
-
-if bool(settings.DEBUG) == True:
-    """Development Specific Routes"""
-    from django.contrib import admin
-    from config.settings import local
-    from django.conf.urls.static import static
-    urlpatterns += static(local.STATIC_URL,
-                          document_root=local.STATIC_ROOT)
-    urlpatterns += static(local.MEDIA_URL,
-                          document_root=local.MEDIA_ROOT)
-else:
-    """Production Specific Routes"""
-    urlpatterns += path('admin/', include('admin_honeypot.urls',
-                                          namespace='admin_honeypot')),
+    
