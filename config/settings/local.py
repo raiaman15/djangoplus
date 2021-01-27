@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -163,8 +163,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # django-allauth config
 LOGIN_REDIRECT_URL = 'dashboard'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'product_page'
-ACCOUNT_SIGNUP_REDIRECT_URL = 'company_page'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+ACCOUNT_SIGNUP_REDIRECT_URL = 'account_login'
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',

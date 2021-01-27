@@ -30,45 +30,43 @@
 <body class="hold-transition {% block body_class %} login-page {% endblock body_class %}">
   {% block body %}
 
-  {% if messages %}
-  <div>
-    <strong>Messages:</strong>
-    <ul>
-      {% for message in messages %}
-      <li>{{message}}</li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-
-  <div>
-    <strong>Menu:</strong>
-    <ul>
-      {% if user.is_authenticated %}
-      <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-      <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-      {% else %}
-      <li><a href="{% url 'account_login' %}">Sign In</a></li>
-      <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-      {% endif %}
-    </ul>
-  </div>
 
   <div class="login-box">
-    <div class="login-logo">
-      <a target="_blank" href=""><b>{{PRODUCT_NAME}}</b> <br /><span style="font-size: x-small;"> by
-          {{COMPANY_NAME}}</span></a>
+    {% if messages %}
+    <div class="alert alert-info alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h5><i class="icon fas fa-info"></i> Notification:</h5>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
     </div>
+    {% endif %}
 
-    <div class="card">
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="{% url 'product_page' %}" class="h1">
+          <img src="{% static 'logo.png' %}" alt="{{PRODUCT_NAME}}" style="max-width: 3rem;">
+        </a>
+      </div>
       <div class="card-body login-card-body">
-        <h5 class="login-box-msg">
-          Error 404 - Page Not Found
-        </h5>
-        <p class="login-box-msg">
+        <p class="login-box-msg m-0 p-0">
           {% block content %}{% endblock %}
         </p>
-        <br />
+        <hr />
+        <div class="text-center">
+          <p>
+            {% if user.is_authenticated %}
+            <a href="{% url 'account_email' %}">Change E-mail</a> | <a href="{% url 'account_logout' %}">Sign Out</a>
+            {% else %}
+            <a href="{% url 'account_login' %}">Sign In</a> if you are already registered.
+            <br />
+            <a href="{% url 'account_signup' %}">Sign Up</a> if you haven't registered yet.
+            {% endif %}
+          </p>
+        </div>
+        <hr />
         <div class="text-center">
           &copy;
           <a target="_blank" href="{% url 'product_page' %}">{{PRODUCT_NAME}}</a>

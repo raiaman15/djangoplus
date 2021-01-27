@@ -11,7 +11,8 @@ services:
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - 8000:8000
+      - 9001:9001
     env_file:
       - ./.envs/.local/.django
     depends_on:
@@ -23,7 +24,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:
-      - "5432:5432"
+      - 5432:5432
     env_file:
       - ./.envs/.local/.postgres
 volumes:
