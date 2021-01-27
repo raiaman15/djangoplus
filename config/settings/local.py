@@ -27,9 +27,9 @@ INSTALLED_APPS = [] + INSTALLED_APPS
 INSTALLED_APPS += ['django_extensions', ]
 
 # Add MIDDLEWARE on top
-MIDDLEWARE = ['django.middleware.cache.UpdateCacheMiddleware', ] + MIDDLEWARE
+MIDDLEWARE = [] + MIDDLEWARE
 # Add MIDDLEWARE at bottom
-MIDDLEWARE += ['django.middleware.cache.FetchFromCacheMiddleware', ]
+MIDDLEWARE += []
 
 ROOT_URLCONF = 'config.urls.local'
 
